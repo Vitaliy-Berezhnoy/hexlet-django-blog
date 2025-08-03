@@ -7,3 +7,6 @@ start:
 migrations:
 	uv run manage.py makemigrations
 	uv run manage.py migrate
+
+shell:
+	uv run manage.py shell
