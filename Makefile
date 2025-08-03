@@ -3,3 +3,7 @@ lint:
 
 start:
 	uv run manage.py runserver
+
+migrations:
+	uv run manage.py makemigrations
+	uv run manage.py migrate
