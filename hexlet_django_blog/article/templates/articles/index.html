@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{Title}}</h1>
 <p>{{debug}}</p>
 {% if debug %}
 <p>Сервер запущен в режиме разработчика.</p>
 {% endif %}
-<p>Статья номер {{ Article_id }}. Тег {{ Tags }}</p>
+<h1>Список статей</h1>
+{% for article in articles %}
+  <h2>{{ article.name }}</h2>
+  <div>{{ article.body|slice:":200" }}</div>
+{% endfor %}
 {% endblock %}
 
