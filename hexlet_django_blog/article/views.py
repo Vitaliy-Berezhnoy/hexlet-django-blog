@@ -1,5 +1,5 @@
 #from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import View
 #from django.shortcuts import redirect
 #from django.views.decorators.http import require_http_methods
@@ -22,3 +22,7 @@ def index(request, tags, article_id):
         context={'Title': 'ARTICLEs', 'Tags': tags, 'Article_id': article_id},
     )
 
+class ArticleView(View):
+    def get(self, request, *args, **kwargs):
+        article = get_object_or_404(Article, pk=kwargs['pk'])
+        return render(request, "articles/show.html", context={'article': article})
