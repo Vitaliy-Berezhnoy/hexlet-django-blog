@@ -3,4 +3,5 @@
 {% block content %}
 <h2>{{ article.name }}</h2>
 <div>{{ article.body }}</div>
+<a href="{% url 'articles:articles_update' pk=article.id %}">Редактировать</a>
 {% endblock %}
